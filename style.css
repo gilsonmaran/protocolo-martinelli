@@ -1,0 +1,21 @@
+.images-references {
+    display: flex;
+}
+
+.images-references .item {
+    margin: 10px;
+}
+
+.images-references img {
+    height: 3cm;
+}
+
+.images-references p {
+    text-align: center;
+    font-size: 13px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+}
