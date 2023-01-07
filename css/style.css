@@ -1,0 +1,55 @@
+.images-references {
+    display: flex;
+}
+
+.images-references .item {
+    margin: 10px;
+}
+
+.images-references img {
+    height: 3cm;
+}
+
+.images-references p {
+    text-align: center;
+    font-size: 13px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.header div {
+    text-align: center;
+}
+
+.logo {
+    height: 75px;
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 5mm;
+        page-break-inside: auto;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .no-print {
+        display: none;
+    }
+}
