@@ -9,7 +9,6 @@ dateBirth.addEventListener('change', () => {
     calculateAge(dateExam.value, age);
 });
 
-
 dateExam.value = moment().format('YYYY-MM-DD')
 dateExam.addEventListener('change', () => {
     calculateAge(dateExam.value, age);
@@ -62,13 +61,7 @@ const inputs = [...document.querySelectorAll('input[type="radio"]')]
 
 inputs.forEach(e => {
     e.addEventListener('click', () => {
-        score = 0
-
-        inputs.forEach(input => {
-            if (input.checked)
-                score += parseInt(input.value)
-        })
-
+        score = calculateScore()
         showResult()
 
         infoScore.innerText = score === 1
@@ -76,6 +69,19 @@ inputs.forEach(e => {
             : `${score} pontos`
     })
 })
+
+function calculateScore() {
+    let points = 0
+
+    inputs.forEach(input => {
+        if (input.checked && input.value != 'on') {
+            points += parseInt(input.value)
+        }
+    })
+
+    return points
+}
+
 
 // ---------------------------
 // RESULTADO
