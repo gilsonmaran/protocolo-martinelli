@@ -57,7 +57,7 @@ images.forEach(image => {
 // CALCULAR SCORE
 // ---------------------------
 let score = 0
-const result = document.getElementById('result')
+const infoScore = document.getElementById('info-score')
 const inputs = [...document.querySelectorAll('input[type="radio"]')]
 
 inputs.forEach(e => {
@@ -71,7 +71,7 @@ inputs.forEach(e => {
 
         showResult()
 
-        result.innerText = score === 1
+        infoScore.innerText = score === 1
             ? `${score} ponto`
             : `${score} pontos`
     })
@@ -80,33 +80,20 @@ inputs.forEach(e => {
 // ---------------------------
 // RESULTADO
 // ---------------------------
-resetResults()
-
-function resetResults() {
-    const results = ['result1', 'result2', 'result3']
-    results.forEach(r => {
-        document.getElementById(r).style.display = 'none'
-        document.getElementById(r).style.display = 'none'
-        document.getElementById(r).style.display = 'none'
-    })
-}
+const infoResult = document.getElementById('info-result')
 
 function showResult() {
-    resetResults()
-
     if (score <= 3) {
-        document.getElementById('result1').style.display = 'block';
-        return;
+        return infoResult.innerText = 'Resultado 1'
     }
 
     if (score <= 7) {
-        document.getElementById('result2').style.display = 'block';
-        return;
+        return infoResult.innerText = 'Resultado 2'
     }
 
-    if (score < 99) {
-        document.getElementById('result3').style.display = 'block';
-        return;
+    if (score > 7) {
+        return infoResult.innerText = 'Resultado 3'
     }
 
+    return infoResult.innerText = ''
 }
