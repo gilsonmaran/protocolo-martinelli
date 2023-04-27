@@ -18,15 +18,28 @@ function calculateAge(dataConsulta, alvo) {
     if (dateBirth.value == '' || dataConsulta == '')
         return
 
-    const dn = moment(dateBirth.value)
-    const dc = moment(dataConsulta).add(1, 'days')
+    const _dateBirth = moment(dateBirth.value)
+    const _dateConsult = moment(dataConsulta).add(0, 'days')
+    const years = _dateConsult.diff(_dateBirth, 'years')
 
-    const idadeReal = dc.diff(dn, 'years', true)
+    if (years < 1) {
+        const _ageInMonths = _dateConsult.diff(_dateBirth, 'months', true)
+        const _months = parseInt(_ageInMonths)
 
-    const anos = dc.diff(dn, 'years')
-    const meses = parseInt((idadeReal - anos) * 12)
+        let _days = (_ageInMonths - _months) * 30
+        _days = Math.round(_days)
 
-    alvo.value = `${anos}a ${meses}m`
+        return alvo.value = `${_months}m ${_days}d`
+    }
+
+    if (years >= 1) {
+        const _ageInMonths = _dateConsult.diff(_dateBirth, 'months', true)
+        const _months = _ageInMonths - (years * 12)
+
+        return alvo.value = `${years}a ${_months}m`
+    }
+
+    alvo.value = 'Não Calculado'
 }
 
 // ---------------------------
@@ -87,18 +100,19 @@ function calculateScore() {
 // RESULTADO
 // ---------------------------
 const infoResult = document.getElementById('info-result')
+const infoConclusion = document.getElementById('info-conclusion')
 
 function showResult() {
-    if (score <= 3) {
-        return infoResult.innerText = 'Resultado 1'
-    }
-
     if (score <= 7) {
-        return infoResult.innerText = 'Resultado 2'
+        infoResult.innerText = 'Normal'
+        infoConclusion.innerText = 'Normal. Se pontuação estiver entre 4 e 7, o re-teste é opcional.'
+        return;
     }
 
     if (score > 7) {
-        return infoResult.innerText = 'Resultado 3'
+        infoResult.innerText = 'Indicado para frenectomia'
+        infoConclusion.innerText = 'Deve ser realizado frenectomia'
+        return;
     }
 
     return infoResult.innerText = ''
