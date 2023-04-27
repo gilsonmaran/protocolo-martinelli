@@ -43,29 +43,6 @@ function calculateAge(dataConsulta, alvo) {
 }
 
 // ---------------------------
-// ADICIONAR AS IMAGENS
-// ---------------------------
-const images = [
-    'img-1',
-    'img-2',
-    'img-3',
-    'img-4',
-];
-
-images.forEach(image => {
-    const element = document.getElementById(image)
-
-    element.addEventListener('change', () => {
-        const id = image.split('-')[1]
-        const target = document.getElementById(`exam-${id}`)
-        const file = element.files[0];
-
-        if (file)
-            target.src = URL.createObjectURL(file);
-    })
-})
-
-// ---------------------------
 // CALCULAR SCORE
 // ---------------------------
 let score = 0
