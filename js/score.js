@@ -10,7 +10,7 @@ inputs.forEach(e => {
         score = calculateScore()
         showResult()
 
-        infoScore.innerText = score === 1
+        infoScore.innerText = score < 2
             ? `${score} ponto`
             : `${score} pontos`
     })
@@ -35,9 +35,15 @@ const infoResult = document.getElementById('info-result')
 const infoConclusion = document.getElementById('info-conclusion')
 
 function showResult() {
-    if (score <= 7) {
+    if (score < 4) {
         infoResult.innerText = 'Normal'
-        infoConclusion.innerText = 'Normal. Se pontuação estiver entre 4 e 7, o re-teste é opcional.'
+        infoConclusion.innerText = 'Normal'
+        return;
+    }
+
+    if (score >= 4 && score <= 7) {
+        infoResult.innerText = 'Normal'
+        infoConclusion.innerText = 'Normal. Pontuação entre 4 e 7. Re-teste opcional'
         return;
     }
 

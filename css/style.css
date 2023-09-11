@@ -31,6 +31,9 @@
 .item {
     display: flex;
     flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding-bottom: 5px;
 }
 
 h1 {
@@ -43,6 +46,10 @@ h2 {
 
 h3 {
     font-size: 18px;
+}
+
+textarea {
+    resize: none;
 }
 
 .header {
@@ -62,9 +69,15 @@ h3 {
     margin: 0 5px;
 }
 
-textarea {
-    resize: none;
+.page hr {
+    margin-top: 0.2rem;
+    margin-bottom: 0.75rem;
 }
+
+.only-print {
+    display: none;
+}
+
 
 @media print {
     @page {
@@ -73,17 +86,20 @@ textarea {
         page-break-inside: auto;
     }
 
-    .page {
-        page-break-before: always;
-    }
-
-
     body {
         margin: 0;
         padding: 0;
     }
 
+    .page {
+        page-break-before: always;
+    }
+
     .no-print {
         display: none;
+    }
+
+    .only-print {
+        display: block;
     }
 }
