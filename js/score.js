@@ -1,14 +1,16 @@
 // ---------------------------
 // CALCULAR SCORE
 // ---------------------------
-let score = 0
 const infoScore = document.getElementById('info-score')
+const infoResult = document.getElementById('info-result')
+const infoConclusion = document.getElementById('info-conclusion')
+
 const inputs = [...document.querySelectorAll('input[type="radio"]')]
 
 inputs.forEach(e => {
     e.addEventListener('click', () => {
-        score = calculateScore()
-        showResult()
+        const score = calculateScore()
+        calculateResult(score)
 
         infoScore.innerText = score < 2
             ? `${score} ponto`
@@ -31,27 +33,37 @@ function calculateScore() {
 // ---------------------------
 // RESULTADO
 // ---------------------------
-const infoResult = document.getElementById('info-result')
-const infoConclusion = document.getElementById('info-conclusion')
-
-function showResult() {
-    if (score < 4) {
-        infoResult.innerText = 'Normal'
-        infoConclusion.innerText = 'Normal'
-        return;
-    }
-
-    if (score >= 4 && score <= 7) {
-        infoResult.innerText = 'Normal'
-        infoConclusion.innerText = 'Normal. Pontuação entre 4 e 7. Re-teste opcional'
-        return;
-    }
-
-    if (score > 7) {
-        infoResult.innerText = 'Indicado para frenectomia'
-        infoConclusion.innerText = 'Deve ser realizado frenectomia'
-        return;
-    }
-
-    return infoResult.innerText = ''
+function calculateResult(score) {
+    infoResult.innerText = displayInfoResult(score)
+    infoConclusion.innerText = displayinfoConclusion(score)
 }
+
+function displayInfoResult(score) {
+    if (score == null || isNaN(score) || score == undefined)
+        return ''
+
+    score < 0 ? 0 : score
+
+    return score <= 7
+        ? 'Normal'
+        : 'Indicado para frenectomia'
+}
+
+function displayinfoConclusion(score) {
+    if (score == null || isNaN(score) || score == undefined)
+        return ''
+
+    score < 0 ? 0 : score
+
+    if (score <= 3)
+        return 'Normal'
+
+    if (score >= 4 && score <= 7)
+        return 'Normal. Pontuação entre 4 e 7. Re-teste opcional'
+
+    if (score > 7)
+        return 'Deve ser realizado frenectomia'
+
+    return ''
+}
+
