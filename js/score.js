@@ -10,7 +10,7 @@ const inputs = [...document.querySelectorAll('input[type="radio"]')]
 inputs.forEach(e => {
     e.addEventListener('click', () => {
         const score = calculateScore()
-        calculateResult(score)
+        displayResult(score)
 
         infoScore.innerText = score < 2
             ? `${score} ponto`
@@ -33,7 +33,7 @@ function calculateScore() {
 // ---------------------------
 // RESULTADO
 // ---------------------------
-function calculateResult(score) {
+function displayResult(score) {
     infoResult.innerText = displayInfoResult(score)
     infoConclusion.innerText = displayinfoConclusion(score)
 }
@@ -66,4 +66,3 @@ function displayinfoConclusion(score) {
 
     return ''
 }
-
