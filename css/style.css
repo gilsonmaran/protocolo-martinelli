@@ -62,11 +62,20 @@ textarea {
 }
 
 .logo {
-    height: 75px;
+    height: 50px;
 }
 
 .header div {
     margin: 0 5px;
+}
+
+.logos {
+    display: flex;
+    flex-direction: row;
+}
+
+.logos p {
+    font-size: 0.75rem;
 }
 
 .page hr {
@@ -101,5 +110,15 @@ textarea {
 
     .only-print {
         display: block;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #title {
+        font-size: 1.5rem;
+    }
+
+    .header {
+        flex-direction: column;
     }
 }
