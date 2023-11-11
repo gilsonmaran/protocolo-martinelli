@@ -39,35 +39,35 @@
 
             <div class="row">
                 <div class="form-group col-md-4 col-sm-12">
-                    <label for="form-label">Nome</label>
-                    <input class="form-control form-control-sm" type="text">
+                    <label for="name">Nome</label>
+                    <input class="form-control form-control-sm"  type="text" id="name" autocomplete="none">
                 </div>
                 <div class="form-group col-md-2 col-sm-12">
-                    <label for="form-label">Data do Exame</label>
-                    <input class="form-control form-control-sm" type="date" id="date-exam">
+                    <label for="date-exam">Data do Exame</label>
+                    <input class="form-control form-control-sm"  type="date" id="date-exam">
                 </div>
                 <div class="form-group col-md-3 col-sm-12">
-                    <label for="form-label">Data Nasc.</label>
+                    <label for="date-birth">Data Nasc.</label>
                     <input class="form-control form-control-sm" type="date" id="date-birth">
                 </div>
                 <div class="form-group col-md-2 col-sm-12">
-                    <label for="form-label">Idade</label>
+                    <label for="age">Idade</label>
                     <input class="form-control form-control-sm" disabled id="age">
                 </div>
                 <div class="form-group col-md-2 col-sm-12">
-                    <label>Gênero</label>
-                    <select class="form-select form-select-sm">
+                    <label for="gender">Gênero</label>
+                    <select class="form-select form-select-sm" id="gender">
                         <option value="M">Masculino</option>
                         <option value="F">Feminino</option>
                     </select>
                 </div>
                 <div class="form-group col-md-4 col-sm-12">
-                    <label for="form-label">Mãe</label>
-                    <input class="form-control form-control-sm" type="text">
+                    <label for="mother">Mãe</label>
+                    <input class="form-control form-control-sm" type="text" id="mother">
                 </div>
                 <div class="form-group col-md-4 col-sm-12">
-                    <label for="form-label">Local da Realização do Exame</label>
-                    <input class="form-control form-control-sm" type="text">
+                    <label for="exam-place">Local da Realização do Exame</label>
+                    <input class="form-control form-control-sm" type="text" id="exam-place">
                 </div>
             </div>
 
@@ -91,8 +91,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Quem e qual o problema</label>
-                        <textarea class="form-control" cols="30" rows="5"></textarea>
+                        <label for="problem">Quem e qual o problema</label>
+                        <textarea class="form-control" cols="30" rows="5" id="problem"></textarea>
                     </div>
                 </div>
 
@@ -112,8 +112,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">Quais</label>
-                        <textarea class="form-control" cols="30" rows="5"></textarea>
+                        <label for="problem-health">Quais</label>
+                        <textarea class="form-control" cols="30" rows="5" id="problem-health"></textarea>
                     </div>
                 </div>
             </div>
@@ -406,7 +406,7 @@
     <script src="js/moment.js"></script>
     <script src="js/score.js"></script>
     <script src="js/idade.js"></script>
-    <script>calculateResult()</script>
+    <script>displayResult()</script>
 </body>
 
 </html>
